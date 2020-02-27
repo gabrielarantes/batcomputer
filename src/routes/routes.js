@@ -8,8 +8,9 @@ import ImageTest from '../screens/ImageTest';
 
 const MainNavigator = createStackNavigator(
   {
-    Home,
     Splash,
+    Home,
+    
   },
   {
     headerMode: 'none',
