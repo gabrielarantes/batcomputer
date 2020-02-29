@@ -4,13 +4,13 @@ import {createStackNavigator} from 'react-navigation-stack';
 //importing screens
 import Splash from '../screens/Splash';
 import Home from '../screens/Home';
-import ImageTest from '../screens/ImageTest';
+import Finder from '../screens/Finder';
 
 const MainNavigator = createStackNavigator(
   {
-    Splash,
+    //Splash,
     Home,
-    
+    Finder
   },
   {
     headerMode: 'none',

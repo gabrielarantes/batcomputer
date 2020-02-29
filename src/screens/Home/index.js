@@ -13,7 +13,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Loading from '../../components/Loading';
-import CardHero from '../../components/CardHero'
+import CardHero from '../../components/CardHero';
 
 import {Container, Logo} from './styles';
 
@@ -21,91 +21,41 @@ import {colors} from '../../constants/colors';
 import {isEmpty} from 'lodash';
 
 import axios from 'axios';
-
 import {apiUrl, api} from '../../config/api';
 
-import NetInfo from "@react-native-community/netinfo";
+import NetInfo from '@react-native-community/netinfo';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import MatComIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import MarqueeFinancial from '../../components/MarqueeFinancial';
 
 function Home() {
   const [hero, setHero] = useState('Superman');
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState();
+  const [connectionType, setConnectionType] = useState('');
+  const [isConnected, setIsConnected] = useState('');
 
   useEffect(() => {
-		NetInfo.addEventListener(state => {
-			console.warn('Connection type', state.type);
-			console.warn('Is connected?', state.isConnected);
-			
+    NetInfo.addEventListener(state => {
+      setConnectionType(state.type);
+      setIsConnected(state.isConnected);
     });
-  },[]);
-
-  const findHero = () => {
-    if (!isEmpty(hero)) {
-      setLoading(true);
-      setItems('');
-
-      //searching heroes
-
-      axios
-        .get(apiUrl + api.search + hero)
-        .then(function(response) {
-          // handle success
-          setItems(response.data.results);
-          setLoading(false);
-        })
-        .catch(function(error) {
-          // handle error
-          console.log(error);
-          setLoading(false);
-        });
-    }
-
-    
-  };
-
-  const handleText = hero => {
-    setHero(hero);
-  };
-
-  function renderItem(item) {
-    return (
-      <CardHero item={item} image={item.image.url} />
-    );
-  }
+  }, []);
 
   return (
-    <LinearGradient
-      style={{flex: 1 , padding: 10}}
-      colors={['#000000', colors.background, '#000000']}
-      //colors={['#FFFFFF', '#FFFFFF']}
-      >
-      
-        <View style={{flexDirection: 'row'}}>
-          <View style={{width: '85%'}}>
-            <Input onChangeText={handleText} value={hero} />
-          </View>
-
-          <View style={{width: '5%'}}></View>
-
-          <View style={{width: '10%'}}>
-            <Button onPress={() => findHero()} title={'OK'} />
-          </View>
+    <View style={{flex: 1}}>
+      <MarqueeFinancial hasConnection={isConnected} />
+      <LinearGradient
+        style={{flex: 1, padding: 10}}
+        colors={[colors.black, colors.background, colors.black]}>
+        <View>
+          <Text style={{color: '#FFF'}}>a</Text>
+          <Text style={{color: '#FFF'}}>a</Text>
+          <Text style={{color: '#FFF'}}>a</Text>
         </View>
-
-        {loading && <Loading />}
-
-        <View style={{flex: 1, marginTop : 15}}>
-          {!isEmpty(items) && (
-            <FlatList
-              style={{flex: 1, background: 'blue'}}
-              data={items}
-              keyExtractor={item => item.id}
-              renderItem={({item}) => renderItem(item)}
-            />
-          )}
-        </View>
-      
-    </LinearGradient>
+      </LinearGradient>
+    </View>
   );
 }
 
