@@ -10,6 +10,7 @@ export const Container = styled.View`
   padding-right : 15px;
 `;
 
-export const Text = styled.Text`
-
+export const TextIntro = styled.Text`
+  font-size : 34px;
+  color : ${colors.blue_border};
 `;

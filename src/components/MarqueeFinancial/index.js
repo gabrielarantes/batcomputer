@@ -27,8 +27,9 @@ function MarqueeFinancial({hasConnection}) {
       setShowData(true);
       axios.get(apiFinancialMarket.url).then(response => {
         if (!isEmpty(response.data)) {
+          
           let array = [];
-
+ 
           array.push(
             'USD ' +
               response.data.results.currencies.USD.buy +
