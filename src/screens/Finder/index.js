@@ -1,10 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {
-  Text,
   View,
-  TouchableOpacity,
-  Image,
-  ImageBackground,
   FlatList,
 } from 'react-native';
 
@@ -26,9 +22,10 @@ import {apiUrl, api} from '../../config/api';
 
 //import NetInfo from "@react-native-community/netinfo";
 
+
 import Header from '../../components/Header'
 
-function Finder() {
+function Finder({navigation}) {
   const [hero, setHero] = useState('Superman');
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState();
