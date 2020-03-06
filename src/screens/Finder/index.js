@@ -26,6 +26,8 @@ import {apiUrl, api} from '../../config/api';
 
 import NetInfo from "@react-native-community/netinfo";
 
+import Header from '../../components/Header'
+
 function Finder() {
   const [hero, setHero] = useState('Superman');
   const [loading, setLoading] = useState(false);
@@ -76,9 +78,8 @@ function Finder() {
     <LinearGradient
       style={{flex: 1 , padding: 10}}
       colors={['#000000', colors.background, '#000000']}
-      //colors={['#FFFFFF', '#FFFFFF']}
       >
-      
+        <Header title='Finder' />
         <View style={{flexDirection: 'row'}}>
           <View style={{width: '85%'}}>
             <Input onChangeText={handleText} value={hero} />
