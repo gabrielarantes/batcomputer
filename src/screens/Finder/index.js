@@ -33,9 +33,8 @@ function Finder() {
 
   useEffect(() => {
 		NetInfo.addEventListener(state => {
-			console.warn('Connection type', state.type);
-			console.warn('Is connected?', state.isConnected);
-			
+			//console.warn('Connection type', state.type);
+			//console.warn('Is connected?', state.isConnected);
     });
   },[]);
 

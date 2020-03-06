@@ -32,7 +32,7 @@ import EntypoIcon from 'react-native-vector-icons/Entypo';
 import ButtonHome from '../../components/ButtonHome';
 import MarqueeFinancial from '../../components/MarqueeFinancial';
 
-function Home() {
+function Home({navigation}) {
   const [hero, setHero] = useState('Superman');
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState();
@@ -79,7 +79,14 @@ function Home() {
             flex: 0.6,
           }}>
           <View style={{flex: 0.5, flexDirection: 'row'}}>
-            <ButtonHome title="Find Hero" icon="mask" lib={'entypoIcon'} />
+            <ButtonHome
+              title="Find Hero"
+              icon="mask"
+              lib={'entypoIcon'}
+              onPress={() => {
+                navigation.navigate('Finder');
+              }}
+            />
             <ButtonHome
               title="Status Network"
               icon="wifi"
@@ -92,9 +99,7 @@ function Home() {
               icon="finance"
               lib={'materialIcon'}
             />
-            <ButtonHome title="News"
-              icon="finance"
-              lib={'materialIcon'} />
+            <ButtonHome title="News" icon="map" lib={'materialIcon'} />
           </View>
         </View>
       </LinearGradient>
