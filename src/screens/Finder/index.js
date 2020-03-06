@@ -24,7 +24,7 @@ import axios from 'axios';
 
 import {apiUrl, api} from '../../config/api';
 
-import NetInfo from "@react-native-community/netinfo";
+//import NetInfo from "@react-native-community/netinfo";
 
 import Header from '../../components/Header'
 
@@ -34,10 +34,10 @@ function Finder() {
   const [items, setItems] = useState();
 
   useEffect(() => {
-		NetInfo.addEventListener(state => {
-			//console.warn('Connection type', state.type);
-			//console.warn('Is connected?', state.isConnected);
-    });
+		// NetInfo.addEventListener(state => {
+		// 	//console.warn('Connection type', state.type);
+		// 	//console.warn('Is connected?', state.isConnected);
+    // });
   },[]);
 
   const findHero = () => {
