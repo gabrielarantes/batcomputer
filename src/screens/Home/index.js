@@ -27,6 +27,7 @@ import {apiUrl, api} from '../../config/api';
 import NetInfo from '@react-native-community/netinfo';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MatComIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import EntypoIcon from 'react-native-vector-icons/Entypo';
 
 import ButtonHome from '../../components/ButtonHome';
 import MarqueeFinancial from '../../components/MarqueeFinancial';
@@ -50,12 +51,17 @@ function Home() {
     <View style={{flex: 1}}>
       <MarqueeFinancial hasConnection={isConnected} />
       <LinearGradient
-        style={{flex: 1, padding: 10, paddingTop: 40}}
+        style={{flex: 1, padding: 10, paddingTop: 5}}
         colors={[colors.black, colors.background, colors.black]}>
         <View
           style={{
             flex: 0.4,
             alignItems: 'center',
+            borderWidth: 1,
+            borderColor: colors.blue_border,
+            padding: 15,
+            borderRadius: 4,
+            marginBottom: 20,
           }}>
           <TextIntro>Welcome to the</TextIntro>
           <MatComIcon
@@ -67,12 +73,29 @@ function Home() {
 
           <TextIntro>BATCOMPUTER</TextIntro>
         </View>
+
         <View
           style={{
             flex: 0.6,
-            alignItems: 'center',
           }}>
-          <ButtonHome title="Find Your Hero" />
+          <View style={{flex: 0.5, flexDirection: 'row'}}>
+            <ButtonHome title="Find Hero" icon="mask" lib={'entypoIcon'} />
+            <ButtonHome
+              title="Status Network"
+              icon="wifi"
+              lib={'materialIcon'}
+            />
+          </View>
+          <View style={{flex: 0.5, flexDirection: 'row'}}>
+            <ButtonHome
+              title="Financial Market"
+              icon="finance"
+              lib={'materialIcon'}
+            />
+            <ButtonHome title="News"
+              icon="finance"
+              lib={'materialIcon'} />
+          </View>
         </View>
       </LinearGradient>
     </View>

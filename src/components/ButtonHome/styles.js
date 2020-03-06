@@ -1,16 +1,30 @@
 import styled from 'styled-components/native';
 import {colors} from '../../constants/colors';
 
+export const ViewBtn = styled.View`
+width: 40%;
+color: ${colors.letter};
+border-width: 2px;
+border-color: ${colors.blue_neon};
+border-radius: 400px;
+
+padding-top: 15px;
+padding-bottom: 15px;
+padding-left: 5%;
+padding-right: 5%;
+`;
+
 export const Btn = styled.TouchableOpacity`
-  width: 100%;
+  width: 40%;
   color: ${colors.letter};
-  background-color: ${colors.blue_neon};
   border-width: 2px;
   border-color: ${colors.blue_neon};
-  border-radius: 40px;
+  border-radius: 400px;
 
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 5%;
+  padding-right: 5%;
+  
+  margin : 5%
 `;
