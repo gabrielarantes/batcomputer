@@ -13,7 +13,7 @@
     "@react-native-community/art": "^1.1.2",
     "@react-native-community/masked-view": "^0.1.6",
     "@react-native-community/netinfo": "^5.5.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "device-info": "^1.0.3",
     "lodash": "^4.17.15",
     "react": "16.9.0",
